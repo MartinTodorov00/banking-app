@@ -10,10 +10,10 @@ public class Main {
             FrontEndControl.run();
 
             //Tasks:
-            //Update for users(v nastroiki da se napravi pole za promqna na imeto ili emaila)
-            //Update for password(v nastroiki da se napravi pole za promqna na parolata na usera)
-            //Problem with Change Limit
-            //Promqna na cvetovete na prilojenieto za da e po krasivo
-            //Promqna na kartinkata na prilojenieto
+            //Update for users(v nastroiki da se napravi pole za promqna na imeto ili emaila) // Database and Swing
+            //Update for password(v nastroiki da se napravi pole za promqna na parolata na usera) // Database and Swing
+            //Problem with Change Limit // Ne se znae
+            //Promqna na cvetovete na prilojenieto za da e po krasivo // Swing
+            //Promqna na kartinkata na prilojenieto // Swing
     }
 }
