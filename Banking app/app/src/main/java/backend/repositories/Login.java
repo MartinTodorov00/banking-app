@@ -52,11 +52,29 @@ public class Login {
 
     public void login(String username, String password) throws SQLException {
 
-        String queryForNameAndPass = "SELECT u.username, u.password FROM users AS u";
+        //id
+        int countForCards = 0;
+        String queryForId = "SELECT MAX(id)\n" +
+                "FROM master_cards;";
 
-        PreparedStatement StatementGetName = connection.prepareStatement(queryForNameAndPass);
+        PreparedStatement preparedStatementForId = connection.prepareStatement(queryForId);
 
-        ResultSet resultSetNames = StatementGetName.executeQuery();
+        ResultSet resultSetId = preparedStatementForId.executeQuery();
+        while (resultSetId.next()) {
+            countForCards = resultSetId.getInt("MAX(id)");
+        }
+
+        //check
+        String queryForNameAndPass = "SELECT u.username, `password` FROM users AS u\n" +
+                "JOIN password p on p.id = u.id_password\n" +
+                "WHERE p.id = ? AND u.id = ?";
+
+        PreparedStatement statementGetName = connection.prepareStatement(queryForNameAndPass);
+
+        statementGetName.setInt(1, countForCards);
+        statementGetName.setInt(2, countForCards);
+
+        ResultSet resultSetNames = statementGetName.executeQuery();
 
         while (resultSetNames.next()) {
             if (resultSetNames.getString("username").equals(username)
