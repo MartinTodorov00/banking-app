@@ -1,28 +1,15 @@
 package backend.repositories;
 
+import backend.services.ConnectionJbdc;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class AccountDelete {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/smart_banking";
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "1234";
-
-    private Connection connection;
-
-    public void setConnection() throws SQLException {
-        Properties properties = new Properties();
-        properties.setProperty("user", DATABASE_USERNAME);
-        properties.setProperty("password", DATABASE_PASSWORD);
-
-        connection = DriverManager.getConnection(DATABASE_URL, properties);
-    }
-
     public void accountDelete(int id) throws SQLException {
+        Connection connection = ConnectionJbdc.getConnection();
 
         String users = "DELETE FROM users\n" +
                 "WHERE id = ?";

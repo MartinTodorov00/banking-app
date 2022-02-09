@@ -1,33 +1,21 @@
 package backend.repositories;
 
+import backend.services.ConnectionJbdc;
 import backend.services.UserModel;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class ChangeLimit {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/smart_banking";
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "1234";
-
-    private Connection connection;
     private static UserModel user = new UserModel();
-
-    public void setConnection() throws SQLException {
-        Properties properties = new Properties();
-        properties.setProperty("user", DATABASE_USERNAME);
-        properties.setProperty("password", DATABASE_PASSWORD);
-
-        connection = DriverManager.getConnection(DATABASE_URL, properties);
-    }
 
     //master card change limits
     public void changeMasterCardPaymentLimit(BigDecimal paymentLimit, int id) throws SQLException {
+        Connection connection = ConnectionJbdc.getConnection();
+
         String queryForChangePaymentLimit = "UPDATE master_cards\n" +
                 "INNER JOIN users ON master_cards.id = users.id\n" +
                 "SET payment_limit = ?\n" +
@@ -42,6 +30,8 @@ public class ChangeLimit {
     }
 
     public void changeMasterCardWithdrawalLimit(BigDecimal withdrawalLimit, int id) throws SQLException {
+        Connection connection = ConnectionJbdc.getConnection();
+
         String queryForChangeWithdrawalLimit = "UPDATE master_cards\n" +
                 "INNER JOIN users ON master_cards.id = users.id\n" +
                 "SET withdrawal_limit = ?\n" +
@@ -57,6 +47,8 @@ public class ChangeLimit {
 
     //visa classic change limits
     public void changeVisaClassicPaymentLimit(BigDecimal paymentLimit, int id) throws SQLException {
+        Connection connection = ConnectionJbdc.getConnection();
+
         String queryForChangePaymentLimit = "UPDATE visa_classic\n" +
                 "INNER JOIN users ON visa_classic.id = users.id\n" +
                 "SET payment_limit = ?\n" +
@@ -71,6 +63,8 @@ public class ChangeLimit {
     }
 
     public void changeVisaClassicWithdrawalLimit(BigDecimal withdrawalLimit, int id) throws SQLException {
+        Connection connection = ConnectionJbdc.getConnection();
+
         String queryForChangeWithdrawalLimit = "UPDATE visa_classic\n" +
                 "INNER JOIN users ON visa_classic.id = users.id\n" +
                 "SET withdrawal_limit = ?\n" +
@@ -86,6 +80,8 @@ public class ChangeLimit {
 
     //credit card change limits
     public void changeCreditCardPaymentLimit(BigDecimal paymentLimit, int id) throws SQLException {
+        Connection connection = ConnectionJbdc.getConnection();
+
         String queryForChangePaymentLimit = "UPDATE credit_cards\n" +
                 "INNER JOIN users ON credit_cards.id = users.id\n" +
                 "SET payment_limit = ?\n" +
@@ -100,6 +96,8 @@ public class ChangeLimit {
     }
 
     public void changeCreditCardWithdrawalLimit(BigDecimal withdrawalLimit, int id) throws SQLException {
+        Connection connection = ConnectionJbdc.getConnection();
+
         String queryForChangeWithdrawalLimit = "UPDATE credit_cards\n" +
                 "INNER JOIN users ON credit_cards.id = users.id\n" +
                 "SET withdrawal_limit = ?\n" +

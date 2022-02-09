@@ -1,18 +1,16 @@
 package backend.repositories;
 
+import backend.services.ConnectionJbdc;
 import backend.services.UserModel;
 
 import java.math.BigDecimal;
-import java.sql.*;
-import java.util.Properties;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class TransferMoney {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/smart_banking";
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "1234";
-
-    private Connection connection;
     private static UserModel user = new UserModel();
 
     private boolean isOtherUser = false;
@@ -51,15 +49,9 @@ public class TransferMoney {
         this.haveMoney = haveMoney;
     }
 
-    public void setConnection() throws SQLException {
-        Properties properties = new Properties();
-        properties.setProperty("user", DATABASE_USERNAME);
-        properties.setProperty("password", DATABASE_PASSWORD);
-
-        connection = DriverManager.getConnection(DATABASE_URL, properties);
-    }
-
     public void transferMoney(String iban, int currentUserId, String fromCard, BigDecimal money) throws SQLException {
+
+        Connection connection = ConnectionJbdc.getConnection();
 
         //check for transfer to him
         String queryForSameUser = "SELECT * FROM users\n" +

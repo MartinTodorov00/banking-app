@@ -1,10 +1,10 @@
 package backend.repositories;
 
+import backend.services.ConnectionJbdc;
 import backend.services.UserModel;
 
 import java.math.BigDecimal;
 import java.sql.*;
-import java.util.Properties;
 
 public class Login {
 
@@ -36,21 +36,9 @@ public class Login {
         isCorrectInfo = correctInfo;
     }
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/smart_banking";
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "1234";
-
-    private Connection connection;
-
-    public void setConnection() throws SQLException {
-        Properties properties = new Properties();
-        properties.setProperty("user", DATABASE_USERNAME);
-        properties.setProperty("password", DATABASE_PASSWORD);
-
-        connection = DriverManager.getConnection(DATABASE_URL, properties);
-    }
-
     public void login(String username, String password) throws SQLException {
+
+        Connection connection = ConnectionJbdc.getConnection();
 
         //id
         int countForCards = 0;
@@ -86,6 +74,8 @@ public class Login {
     }
 
     public void loginUser(String username, String password) throws SQLException {
+
+        Connection connection = ConnectionJbdc.getConnection();
 
         if (isCorrectInfo) {
             //user

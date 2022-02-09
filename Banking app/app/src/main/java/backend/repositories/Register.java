@@ -1,28 +1,20 @@
 package backend.repositories;
 
+import backend.services.ConnectionJbdc;
 import backend.services.Util;
 
-import java.sql.*;
-import java.util.Properties;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Register {
 
-    private static final String DATABASE_URL = "jdbc:mysql://localhost:3306/smart_banking";
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "1234";
-
-    private Connection connection;
-
-    public void setConnection() throws SQLException {
-        Properties properties = new Properties();
-        properties.setProperty("user", DATABASE_USERNAME);
-        properties.setProperty("password", DATABASE_PASSWORD);
-
-        connection = DriverManager.getConnection(DATABASE_URL, properties);
-    }
-
     public void register(String username, String password, String email, String city, String firstName, String lastName) throws SQLException {
         //master_cards
+
+        Connection connection = ConnectionJbdc.getConnection();
+
         String queryForMasterCard = "INSERT INTO master_cards(balance, payment_limit, withdrawal_limit)\n" +
                 "VALUES (?,?,?)";
 
@@ -96,7 +88,7 @@ public class Register {
         //user
 
         String s = "BGN";
-        int random = Util.randomNumber(100000,999999);
+        int random = Util.randomNumber(100000, 999999);
         String iban = s + random;
         String query = "INSERT INTO users (username, id_password, `email`, city, `first name`, `last name`, `id_cards`, `iban`)\n" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -113,8 +105,5 @@ public class Register {
         preparedStatement.setString(8, iban);
 
         preparedStatement.execute();
-
-
     }
-
 }
