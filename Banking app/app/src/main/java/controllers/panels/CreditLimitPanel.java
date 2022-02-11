@@ -1,6 +1,6 @@
 package controllers.panels;
 
-import backend.services.UserModel;
+import backend.entities.User;
 import controllers.controls.FrontEndControl;
 
 import javax.swing.*;
@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+
+import static backend.repositories.Login.user;
 
 public class CreditLimitPanel {
 
@@ -23,7 +25,7 @@ public class CreditLimitPanel {
     private static JLabel limitPayCurrency;
     private static JButton updateLimit;
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     public static Component CreditLimit() {
 
@@ -50,12 +52,12 @@ public class CreditLimitPanel {
         limitPay.setFont(customFontTwo);
         creditLimitPanel.add(limitPay);
 
-        limitWithdrawValue = new JLabel(String.valueOf(user.getUser().getCredit().getWithdrawalLimit()));
+        limitWithdrawValue = new JLabel(String.valueOf(user.getCredit().getWithdrawalLimit()));
         limitWithdrawValue.setBounds(190, 40, 100, 30);
         limitWithdrawValue.setFont(customFontTwo);
         creditLimitPanel.add(limitWithdrawValue);
 
-        limitPayValue = new JLabel(String.valueOf(user.getUser().getCredit().getPaymentLimit()));
+        limitPayValue = new JLabel(String.valueOf(user.getCredit().getPaymentLimit()));
         limitPayValue.setBounds(190, 70, 100, 30);
         limitPayValue.setFont(customFontTwo);
         creditLimitPanel.add(limitPayValue);
@@ -119,8 +121,8 @@ public class CreditLimitPanel {
 
                         if (withdraw != 0 && pay != 0) {
                             try {
-                                FrontEndControl.changeWithdrawalLimits("Credit card", withdrawBigDecimal, user.getUser().getId());
-                                FrontEndControl.changePaymentLimits("Credit card", payBigDecimal, user.getUser().getId());
+                                FrontEndControl.changeWithdrawalLimits("Credit card", withdrawBigDecimal, user.getId());
+                                FrontEndControl.changePaymentLimits("Credit card", payBigDecimal, user.getId());
                                 limitWithdrawValue.setText(newWithdrawValue);
                                 limitPayValue.setText(newPayValue);
                                 newWithdrawLimit.setText("");
@@ -130,7 +132,7 @@ public class CreditLimitPanel {
                             }
                         } else if (withdraw != 0) {
                             try {
-                                FrontEndControl.changeWithdrawalLimits("Credit card", withdrawBigDecimal, user.getUser().getId());
+                                FrontEndControl.changeWithdrawalLimits("Credit card", withdrawBigDecimal, user.getId());
                                 limitWithdrawValue.setText(newWithdrawValue);
                                 newWithdrawLimit.setText("");
                             } catch (SQLException throwables) {
@@ -138,7 +140,7 @@ public class CreditLimitPanel {
                             }
                         } else if (pay != 0) {
                             try {
-                                FrontEndControl.changePaymentLimits("Credit card", payBigDecimal, user.getUser().getId());
+                                FrontEndControl.changePaymentLimits("Credit card", payBigDecimal, user.getId());
                                 limitPayValue.setText(newPayValue);
                                 newPayLimit.setText("");
                             } catch (SQLException throwables) {

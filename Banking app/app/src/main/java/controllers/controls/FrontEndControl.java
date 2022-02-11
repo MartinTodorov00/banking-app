@@ -1,13 +1,14 @@
 package controllers.controls;
 
+import backend.entities.User;
 import backend.repositories.*;
-import backend.services.ConnectionJbdc;
 import controllers.panels.LoginPanel;
 import java.math.BigDecimal;
-import java.sql.Connection;
 import java.sql.SQLException;
 
 public class FrontEndControl {
+
+//    private static User user = new User();
 
     public static void run(){
         LoginPanel.loginFrame();

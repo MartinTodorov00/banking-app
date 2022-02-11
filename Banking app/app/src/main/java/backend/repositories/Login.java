@@ -1,7 +1,7 @@
 package backend.repositories;
 
+import backend.entities.User;
 import backend.services.ConnectionJbdc;
-import backend.services.UserModel;
 
 import java.math.BigDecimal;
 import java.sql.*;
@@ -10,15 +10,8 @@ public class Login {
 
     private boolean isCorrectInfo = false;
     private boolean successfulLogin = false;
-    public static UserModel user = new UserModel();
 
-    public UserModel getUser() {
-        return user;
-    }
-
-    public void setUser(UserModel user) {
-        this.user = user;
-    }
+    public static User user = new User();
 
     public boolean isSuccessfulLogin() {
         return successfulLogin;
@@ -36,31 +29,15 @@ public class Login {
         isCorrectInfo = correctInfo;
     }
 
-    public void login(String username, String password) throws SQLException {
+    public User login(String username, String password) throws SQLException {
 
         Connection connection = ConnectionJbdc.getConnection();
 
-        //id
-        int countForCards = 0;
-        String queryForId = "SELECT MAX(id)\n" +
-                "FROM master_cards;";
-
-        PreparedStatement preparedStatementForId = connection.prepareStatement(queryForId);
-
-        ResultSet resultSetId = preparedStatementForId.executeQuery();
-        while (resultSetId.next()) {
-            countForCards = resultSetId.getInt("MAX(id)");
-        }
-
         //check
         String queryForNameAndPass = "SELECT u.username, `password` FROM users AS u\n" +
-                "JOIN password p on p.id = u.id_password\n" +
-                "WHERE p.id = ? AND u.id = ?";
+                "JOIN password p on p.id = u.id_password\n";
 
         PreparedStatement statementGetName = connection.prepareStatement(queryForNameAndPass);
-
-        statementGetName.setInt(1, countForCards);
-        statementGetName.setInt(2, countForCards);
 
         ResultSet resultSetNames = statementGetName.executeQuery();
 
@@ -70,10 +47,10 @@ public class Login {
                 setCorrectInfo(true);
             }
         }
-        loginUser(username, password);
+        return loginUser(username, password);
     }
 
-    public void loginUser(String username, String password) throws SQLException {
+    public User loginUser(String username, String password) throws SQLException {
 
         Connection connection = ConnectionJbdc.getConnection();
 
@@ -162,13 +139,14 @@ public class Login {
 
             }
 
-            user.getUser().logUser(userId, username, password, userMail, userCity, userFirstName, userLastName
+            user.logUser(userId, username, password, userMail, userCity, userFirstName, userLastName
                     , masterCardBalance, masterCardPaymentLimit, masterCardWithdrawalLimit
                     , visaClassicBalance, visaClassicPaymentLimit, visaClassicWithdrawalLimit
                     , creditCardBalance, creditCardPaymentLimit, creditCardWithdrawalLimit);
 
             setSuccessfulLogin(true);
         }
+        return user;
     }
 
 }

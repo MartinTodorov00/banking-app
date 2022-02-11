@@ -1,12 +1,14 @@
 package controllers.panels;
 
-import backend.services.UserModel;
+import backend.entities.User;
 
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static backend.repositories.Login.user;
 
 public class CreditBillsPanel {
 
@@ -18,7 +20,7 @@ public class CreditBillsPanel {
 
     private static JButton logoutButton;
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     public static void CreditBillsPanel(){
 
@@ -45,7 +47,7 @@ public class CreditBillsPanel {
         mainProgramPanel.add(totalFundsLabel);
 
 
-        allBalanceLabel = new JLabel(String.valueOf(user.getUser().getCredit().getBalance()), SwingConstants.CENTER);
+        allBalanceLabel = new JLabel(String.valueOf(user.getCredit().getBalance()), SwingConstants.CENTER);
         allBalanceLabel.setBounds(290, 40, 180, 30);
         allBalanceLabel.setBorder(blackLine);
         allBalanceLabel.setOpaque(true);

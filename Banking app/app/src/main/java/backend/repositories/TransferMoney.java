@@ -1,7 +1,7 @@
 package backend.repositories;
 
+import backend.entities.User;
 import backend.services.ConnectionJbdc;
-import backend.services.UserModel;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -11,19 +11,11 @@ import java.sql.SQLException;
 
 public class TransferMoney {
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     private boolean isOtherUser = false;
     private boolean isCorrectIban = false;
     private boolean haveMoney = false;
-
-    public static UserModel getUser() {
-        return user;
-    }
-
-    public static void setUser(UserModel user) {
-        TransferMoney.user = user;
-    }
 
     public boolean isOtherUser() {
         return isOtherUser;

@@ -1,7 +1,7 @@
 package backend.repositories;
 
+import backend.entities.User;
 import backend.services.ConnectionJbdc;
-import backend.services.UserModel;
 
 import java.math.BigDecimal;
 import java.sql.Connection;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class ChangeLimit {
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     //master card change limits
     public void changeMasterCardPaymentLimit(BigDecimal paymentLimit, int id) throws SQLException {

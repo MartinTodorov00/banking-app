@@ -1,6 +1,6 @@
 package controllers.panels;
 
-import backend.services.UserModel;
+import backend.entities.User;
 import controllers.controls.FrontEndControl;
 import javax.swing.*;
 import java.awt.*;
@@ -8,6 +8,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+
+import static backend.repositories.Login.user;
 
 public class MasterCardLimitPanel {
 
@@ -22,7 +24,7 @@ public class MasterCardLimitPanel {
     private static JLabel limitPayCurrency;
     private static JButton updateLimit;
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     public static Component MasterCardLimit() {
 
@@ -49,12 +51,12 @@ public class MasterCardLimitPanel {
         limitPay.setFont(customFontTwo);
         mastercardLimitPanel.add(limitPay);
 
-        limitWithdrawValue = new JLabel(String.valueOf(user.getUser().getMasterCard().getWithdrawalLimit()));
+        limitWithdrawValue = new JLabel(String.valueOf(user.getMasterCard().getWithdrawalLimit()));
         limitWithdrawValue.setBounds(190, 40, 100, 30);
         limitWithdrawValue.setFont(customFontTwo);
         mastercardLimitPanel.add(limitWithdrawValue);
 
-        limitPayValue = new JLabel(String.valueOf(user.getUser().getMasterCard().getPaymentLimit()));
+        limitPayValue = new JLabel(String.valueOf(user.getMasterCard().getPaymentLimit()));
         limitPayValue.setBounds(190, 70, 100, 30);
         limitPayValue.setFont(customFontTwo);
         mastercardLimitPanel.add(limitPayValue);
@@ -118,8 +120,8 @@ public class MasterCardLimitPanel {
 
                         if (withdraw != 0 && pay != 0) {
                             try {
-                                FrontEndControl.changeWithdrawalLimits("Master card", withdrawBigDecimal, user.getUser().getId());
-                                FrontEndControl.changePaymentLimits("Master card", payBigDecimal, user.getUser().getId());
+                                FrontEndControl.changeWithdrawalLimits("Master card", withdrawBigDecimal, user.getId());
+                                FrontEndControl.changePaymentLimits("Master card", payBigDecimal, user.getId());
                                 limitWithdrawValue.setText(newWithdrawValue);
                                 limitPayValue.setText(newPayValue);
                                 newWithdrawLimit.setText("");
@@ -129,7 +131,7 @@ public class MasterCardLimitPanel {
                             }
                         } else if (withdraw != 0) {
                             try {
-                                FrontEndControl.changeWithdrawalLimits("Master card", withdrawBigDecimal, user.getUser().getId());
+                                FrontEndControl.changeWithdrawalLimits("Master card", withdrawBigDecimal, user.getId());
                                 limitWithdrawValue.setText(newWithdrawValue);
                                 newWithdrawLimit.setText("");
                             } catch (SQLException throwables) {
@@ -137,7 +139,7 @@ public class MasterCardLimitPanel {
                             }
                         } else if (pay != 0) {
                             try {
-                                FrontEndControl.changePaymentLimits("Master card", payBigDecimal, user.getUser().getId());
+                                FrontEndControl.changePaymentLimits("Master card", payBigDecimal, user.getId());
                                 limitPayValue.setText(newPayValue);
                                 newPayLimit.setText("");
                             } catch (SQLException throwables) {

@@ -1,6 +1,6 @@
 package controllers.panels;
 
-import backend.services.UserModel;
+import backend.entities.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,11 +8,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
+import static backend.repositories.Login.user;
+
 public class CoordinationPanel{
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
-    public static JFrame mainFrame = new JFrame("SmartBanking — " + user.getUser().getFirstName()+ " " + user.getUser().getLastName());
+    public static JFrame mainFrame = new JFrame("SmartBanking — " + user.getFirstName()+ " " + user.getLastName());
 
     public static Component CoordinationPanel(){
 
@@ -103,6 +105,7 @@ public class CoordinationPanel{
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         mainFrame.setVisible(false);
+                        user.logOut();
                         LoginPanel.loginFrame();
                     }
                 });

@@ -121,4 +121,15 @@ public class User {
         this.credit = credit;
     }
 
+    public void logOut() {
+        setUsername(null);
+        setPassword(null);
+        setEmail(null);
+        setCity(null);
+        setFirstName(null);
+        setLastName(null);
+        setMasterCard(null);
+        setVisa(null);
+        setCredit(null);
+    }
 }

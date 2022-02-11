@@ -32,7 +32,7 @@ public class OptionsPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         try {
-                            FrontEndControl.deleteAccount(Login.user.getUser().getId());
+                            FrontEndControl.deleteAccount(Login.user.getId());
                             mainFrame.setVisible(false);
                             LoginPanel.loginFrame();
                         } catch (SQLException ex) {

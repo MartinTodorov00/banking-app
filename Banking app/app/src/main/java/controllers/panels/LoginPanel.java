@@ -1,6 +1,6 @@
 package controllers.panels;
 
-import backend.services.UserModel;
+import backend.entities.User;
 import controllers.controls.FrontEndControl;
 
 import javax.swing.*;
@@ -18,7 +18,7 @@ public class LoginPanel{
     private static JButton loginButton;
     private static JButton registerButton;
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     public static void loginFrame(){
         Font customFont = new Font(Font.SERIF, Font.BOLD, 18);

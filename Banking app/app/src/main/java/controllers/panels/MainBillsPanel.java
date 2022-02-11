@@ -1,12 +1,14 @@
 package controllers.panels;
 
 
-import backend.services.UserModel;
+import backend.entities.User;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static backend.repositories.Login.user;
 
 public class MainBillsPanel {
 
@@ -23,7 +25,7 @@ public class MainBillsPanel {
 
     private static JButton logoutButton;
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     public static void MainBillsPanel(){
 
@@ -54,7 +56,7 @@ public class MainBillsPanel {
         totalFundsLabel.setFont(customFont);
         mainProgramPanel.add(totalFundsLabel);
 
-        mCBalanceLabel = new JLabel(String.valueOf(user.getUser().getMasterCard().getBalance()), SwingConstants.CENTER);
+        mCBalanceLabel = new JLabel(String.valueOf(user.getMasterCard().getBalance()), SwingConstants.CENTER);
         mCBalanceLabel.setBounds(290, 90, 180, 30);
         mCBalanceLabel.setBorder(blackLine);
         mCBalanceLabel.setOpaque(true);
@@ -70,7 +72,7 @@ public class MainBillsPanel {
         mCCurrencyLabel.setFont(customFont);
         mainProgramPanel.add(mCCurrencyLabel);
 
-        vBalanceLabel = new JLabel(String.valueOf(user.getUser().getVisa().getBalance()), SwingConstants.CENTER);
+        vBalanceLabel = new JLabel(String.valueOf(user.getVisa().getBalance()), SwingConstants.CENTER);
         vBalanceLabel.setBounds(290, 140, 180, 30);
         vBalanceLabel.setBorder(blackLine);
         vBalanceLabel.setOpaque(true);

@@ -1,7 +1,7 @@
 
 package controllers.panels;
 
-import backend.services.UserModel;
+import backend.entities.User;
 import controllers.controls.FrontEndControl;
 
 import javax.swing.*;
@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+
+import static backend.repositories.Login.user;
 
 public class TransferPanel {
 
@@ -26,7 +28,7 @@ public class TransferPanel {
 
     private static JComboBox cardsBox;
 
-    private static UserModel user = new UserModel();
+//    private static User user = new User();
 
     public static Component Transfer() {
 
@@ -91,14 +93,14 @@ public class TransferPanel {
                                 JOptionPane.showMessageDialog(null, "Неуспешен паричен трансфер", "Грешка", JOptionPane.ERROR_MESSAGE);
                             }else{
                                 BigDecimal sumNumberBigDecimal = new BigDecimal((Integer.parseInt(sumNumber)));
-                                boolean correct = FrontEndControl.transferMoney(ibanNumber, user.getUser().getId(), card, sumNumberBigDecimal);
+                                boolean correct = FrontEndControl.transferMoney(ibanNumber, user.getId(), card, sumNumberBigDecimal);
                                 if (correct) {
                                     if (card.equals("MasterCard")) {
-                                        user.getUser().getMasterCard().setBalance(user.getUser().getMasterCard().getBalance().subtract(sumNumberBigDecimal));
+                                        user.getMasterCard().setBalance(user.getMasterCard().getBalance().subtract(sumNumberBigDecimal));
                                     }else if (card.equals("VisaClassic")) {
-                                        user.getUser().getVisa().setBalance(user.getUser().getVisa().getBalance().subtract(sumNumberBigDecimal));
+                                        user.getVisa().setBalance(user.getVisa().getBalance().subtract(sumNumberBigDecimal));
                                     }else if (card.equals("CreditCard")) {
-                                        user.getUser().getCredit().setBalance(user.getUser().getCredit().getBalance().subtract(sumNumberBigDecimal));
+                                        user.getCredit().setBalance(user.getCredit().getBalance().subtract(sumNumberBigDecimal));
                                     }
 
                                     commenceTransferButton.setBackground(new Color(124, 252, 0));
