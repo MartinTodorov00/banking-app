@@ -38,7 +38,7 @@ public class ChangeUsernamePanel {
         usernameUpdate.add(label);
 
         JButton submitButton = new JButton("Потвърди");
-        submitButton.setBounds(100,220,150,35);
+        submitButton.setBounds(270,220,150,35);
         submitButton.setFont(customFont);
         submitButton.setBackground(new Color(212, 212, 212));
         usernameUpdate.add(submitButton);
@@ -55,7 +55,7 @@ public class ChangeUsernamePanel {
                 });
 
         JButton backButton = new JButton("Назад");
-        backButton.setBounds(270,220,150,35);
+        backButton.setBounds(100,220,150,35);
         backButton.setFont(customFont);
         backButton.setBackground(new Color(212, 212, 212));
         usernameUpdate.add(backButton);

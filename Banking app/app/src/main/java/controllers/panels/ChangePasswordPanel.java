@@ -43,7 +43,7 @@ public class ChangePasswordPanel {
         passwordUpdate.add(label);
 
         submitButton = new JButton("Потвърди");
-        submitButton.setBounds(100, 220, 150, 35);
+        submitButton.setBounds(270, 220, 150, 35);
         submitButton.setBackground(new Color(212, 212, 212));
         submitButton.setFont(customFont);
         passwordUpdate.add(submitButton);
@@ -60,7 +60,7 @@ public class ChangePasswordPanel {
                 });
 
         backButton = new JButton("Назад");
-        backButton.setBounds(270, 220, 150, 35);
+        backButton.setBounds(100, 220, 150, 35);
         backButton.setFont(customFont);
         backButton.setBackground(new Color(212, 212, 212));
         passwordUpdate.add(backButton);
