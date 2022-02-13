@@ -1,11 +1,15 @@
 package controllers.panels;
 
+import controllers.controls.FrontEndControl;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
+import static backend.repositories.Login.user;
 import static controllers.panels.CoordinationPanel.mainFrame;
 
 public class ChangePasswordPanel {
@@ -53,6 +57,11 @@ public class ChangePasswordPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         newPassword = passwordField.getText();
+                        try {
+                            FrontEndControl.changePassword(newPassword, user.getId());
+                        } catch (SQLException ex) {
+                            ex.printStackTrace();
+                        }
                         frame.setVisible(false);
                         CoordinationPanel.CoordinationPanel();
                         mainFrame.setVisible(true);

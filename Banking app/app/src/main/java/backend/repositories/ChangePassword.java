@@ -12,7 +12,7 @@ public class ChangePassword {
         Connection connection = ConnectionJbdc.getConnection();
 
         String queryForChangePassword = """
-                UPDATE password AS p
+                UPDATE `password` AS p
                 SET p.password = ?
                 WHERE p.id = ?""";
 
