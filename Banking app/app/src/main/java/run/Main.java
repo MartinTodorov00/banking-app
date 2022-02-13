@@ -1,6 +1,9 @@
 package run;
 
 import controllers.controls.FrontEndControl;
+import controllers.panels.OptionsPanel;
+
+import javax.swing.*;
 
 public class Main {
 
