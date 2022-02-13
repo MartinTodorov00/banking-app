@@ -1,9 +1,6 @@
 package run;
 
 import controllers.controls.FrontEndControl;
-import controllers.panels.OptionsPanel;
-
-import javax.swing.*;
 
 public class Main {
 
@@ -13,7 +10,7 @@ public class Main {
 
         //Tasks:
         //Problem s akauntite(pri natiskane na izhod i logvane na drug user, se pokazvat dannite na purviq lognat user) // Swing
-        //Prevod po smetka
+        //Prevod po smetka // moje bi zaradi gorniq problem
         //opravqne na scaling // Swing
 
         //Promqna na cvetovete na prilojenieto za da e po krasivo // Swing

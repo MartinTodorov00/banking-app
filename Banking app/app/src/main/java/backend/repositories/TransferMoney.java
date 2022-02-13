@@ -1,6 +1,5 @@
 package backend.repositories;
 
-import backend.entities.User;
 import backend.services.ConnectionJbdc;
 
 import java.math.BigDecimal;
@@ -10,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TransferMoney {
-
-//    private static User user = new User();
 
     private boolean isOtherUser = false;
     private boolean isCorrectIban = false;

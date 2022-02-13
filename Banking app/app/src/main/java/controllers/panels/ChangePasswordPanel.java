@@ -19,7 +19,6 @@ public class ChangePasswordPanel {
     private static JButton submitButton;
     private static JButton backButton;
     private static JPanel passwordUpdate;
-    private static String newPassword = "";
 
     public static void changePassword() {
 
@@ -56,6 +55,7 @@ public class ChangePasswordPanel {
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
+                        String newPassword = "";
                         newPassword = passwordField.getText();
                         try {
                             FrontEndControl.changePassword(newPassword, user.getId());
@@ -83,11 +83,5 @@ public class ChangePasswordPanel {
                         mainFrame.setVisible(true);
                     }
                 });
-
     }
-
-    public static String getNewPassword() {
-        return newPassword;
-    }
-
 }

@@ -12,8 +12,6 @@ import static backend.repositories.Login.user;
 
 public class CoordinationPanel{
 
-//    private static User user = new User();
-
     public static JFrame mainFrame = new JFrame("SmartBanking — " + user.getFirstName()+ " " + user.getLastName());
 
     public static Component CoordinationPanel(){

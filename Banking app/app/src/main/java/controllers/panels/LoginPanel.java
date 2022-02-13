@@ -18,8 +18,6 @@ public class LoginPanel{
     private static JButton loginButton;
     private static JButton registerButton;
 
-//    private static User user = new User();
-
     public static void loginFrame(){
         Font customFont = new Font(Font.SERIF, Font.BOLD, 18);
         Font textCustomFont = new Font(Font.SERIF, Font.PLAIN, 16);

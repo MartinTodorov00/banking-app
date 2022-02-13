@@ -20,8 +20,6 @@ public class CreditBillsPanel {
 
     private static JButton logoutButton;
 
-//    private static User user = new User();
-
     public static void CreditBillsPanel(){
 
         Font customFont = new Font(Font.SERIF, Font.BOLD, 18);

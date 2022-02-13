@@ -25,8 +25,6 @@ public class MainBillsPanel {
 
     private static JButton logoutButton;
 
-//    private static User user = new User();
-
     public static void MainBillsPanel(){
 
         Font customFont = new Font(Font.SERIF, Font.BOLD, 18);

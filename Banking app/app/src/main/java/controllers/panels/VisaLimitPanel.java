@@ -25,8 +25,6 @@ public class VisaLimitPanel {
     private static JLabel limitPayCurrency;
     private static JButton updateLimit;
 
-//    private static User user = new User();
-
     public static Component VisaLimit() {
 
         Font customFontOne = new Font(Font.SERIF, Font.BOLD, 20);

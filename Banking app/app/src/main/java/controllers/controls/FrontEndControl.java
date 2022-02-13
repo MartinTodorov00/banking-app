@@ -1,16 +1,14 @@
 package controllers.controls;
 
-import backend.entities.User;
 import backend.repositories.*;
 import controllers.panels.LoginPanel;
+
 import java.math.BigDecimal;
 import java.sql.SQLException;
 
 public class FrontEndControl {
 
-//    private static User user = new User();
-
-    public static void run(){
+    public static void run() {
         LoginPanel.loginFrame();
     }
 
@@ -29,31 +27,31 @@ public class FrontEndControl {
         return correctLogin;
     }
 
-    public static void changePaymentLimits(String cardName,BigDecimal paymentLimit, int id) throws SQLException {
+    public static void changePaymentLimits(String cardName, BigDecimal paymentLimit, int id) throws SQLException {
         ChangeLimit changeLimit = new ChangeLimit();
         if (cardName.equals("Master card")) {
-            changeLimit.changeMasterCardPaymentLimit(paymentLimit,id);
-        }else if (cardName.equals("Visa classic")) {
-            changeLimit.changeVisaClassicPaymentLimit(paymentLimit,id);
-        }else if (cardName.equals("Credit card")) {
-            changeLimit.changeCreditCardPaymentLimit(paymentLimit,id);
+            changeLimit.changeMasterCardPaymentLimit(paymentLimit, id);
+        } else if (cardName.equals("Visa classic")) {
+            changeLimit.changeVisaClassicPaymentLimit(paymentLimit, id);
+        } else if (cardName.equals("Credit card")) {
+            changeLimit.changeCreditCardPaymentLimit(paymentLimit, id);
         }
     }
 
-    public static void changeWithdrawalLimits(String cardName,BigDecimal withdrawalLimit, int id) throws SQLException {
+    public static void changeWithdrawalLimits(String cardName, BigDecimal withdrawalLimit, int id) throws SQLException {
         ChangeLimit changeLimit = new ChangeLimit();
         if (cardName.equals("Master card")) {
-            changeLimit.changeMasterCardWithdrawalLimit(withdrawalLimit,id);
-        }else if (cardName.equals("Visa classic")) {
-            changeLimit.changeVisaClassicWithdrawalLimit(withdrawalLimit,id);
-        }else if (cardName.equals("Credit card")) {
-            changeLimit.changeCreditCardWithdrawalLimit(withdrawalLimit,id);
+            changeLimit.changeMasterCardWithdrawalLimit(withdrawalLimit, id);
+        } else if (cardName.equals("Visa classic")) {
+            changeLimit.changeVisaClassicWithdrawalLimit(withdrawalLimit, id);
+        } else if (cardName.equals("Credit card")) {
+            changeLimit.changeCreditCardWithdrawalLimit(withdrawalLimit, id);
         }
     }
 
     public static boolean transferMoney(String iban, int currentUserId, String fromCard, BigDecimal money) throws SQLException {
         TransferMoney transferMoney = new TransferMoney();
-        transferMoney.transferMoney(iban,currentUserId,fromCard,money);
+        transferMoney.transferMoney(iban, currentUserId, fromCard, money);
         boolean isCorrectIban = transferMoney.isCorrectIban();
         boolean isHaveMoney = transferMoney.isHaveMoney();
         boolean isOtherUser = transferMoney.isOtherUser();

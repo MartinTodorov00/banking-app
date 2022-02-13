@@ -28,8 +28,6 @@ public class TransferPanel {
 
     private static JComboBox cardsBox;
 
-//    private static User user = new User();
-
     public static Component Transfer() {
 
         Font customFont = new Font(Font.SERIF, Font.BOLD, 18);
