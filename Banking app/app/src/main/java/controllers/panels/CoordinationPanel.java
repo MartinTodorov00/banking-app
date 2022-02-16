@@ -3,6 +3,8 @@ package controllers.panels;
 import backend.entities.User;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +25,7 @@ public class CoordinationPanel{
         JButton exitButton;
 
         //run.Main JFrame
-        Font customFont = new Font(Font.SERIF, Font.BOLD, 18);
+        Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setBounds(650,200,400, 500);
@@ -32,10 +34,14 @@ public class CoordinationPanel{
         //Coordination Panel
         JPanel coordinationPanel = new JPanel();
         coordinationPanel.setLayout(null);
-        coordinationPanel.setBackground(new Color(238, 247, 255));
+        coordinationPanel.setBackground(new Color(24, 24, 24));
 
         //TabbedPane
         JTabbedPane tabbedPane = new JTabbedPane();
+        tabbedPane.setBackground( new Color(33, 33, 33));
+        tabbedPane.setForeground(new Color(170,170,170));
+        tabbedPane.setBorder(new LineBorder(new Color(33,33,33)));
+        tabbedPane.setFont(new Font(Font.DIALOG, Font.BOLD, 12));
 
         tabbedPane.addTab("Начало", coordinationPanel);
         tabbedPane.setMnemonicAt(0, KeyEvent.VK_0);
@@ -51,10 +57,10 @@ public class CoordinationPanel{
 
         mainFrame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 
-
         billButton = new JButton("Сметки");
-        billButton.setBounds(80, 75, 220, 35);
-        billButton.setBackground(new Color(255, 255, 255));
+        billButton.setBounds(80, 100, 220, 35);
+        billButton.setBackground(new Color(33, 33, 33));
+        billButton.setForeground(new Color(170,170,170));
         billButton.setFont(customFont);
         billButton.addActionListener(
                 new ActionListener() {
@@ -67,8 +73,9 @@ public class CoordinationPanel{
         coordinationPanel.add(billButton);
 
         creditButton = new JButton("Кредитно състояние");
-        creditButton.setBounds(80, 130, 220, 35);
-        creditButton.setBackground(new Color(255, 255, 255));
+        creditButton.setBounds(80, 160, 220, 35);
+        creditButton.setBackground(new Color(33, 33, 33));
+        creditButton.setForeground(new Color(170,170,170));
         creditButton.setFont(customFont);
         creditButton.addActionListener(
                 new ActionListener() {
@@ -82,8 +89,9 @@ public class CoordinationPanel{
         coordinationPanel.add(creditButton);
 
         contactsButton = new JButton("Контакти");
-        contactsButton.setBounds(80, 185, 220, 35);
-        contactsButton.setBackground(new Color(255, 255, 255));
+        contactsButton.setBounds(80, 220, 220, 35);
+        contactsButton.setBackground(new Color(33, 33, 33));
+        contactsButton.setForeground(new Color(170,170,170));
         contactsButton.setFont(customFont);
         contactsButton.addActionListener(
                 new ActionListener() {
@@ -98,7 +106,8 @@ public class CoordinationPanel{
 
         exitButton = new JButton("Изход");
         exitButton.setBounds(260, 390, 100, 30);
-        exitButton.setBackground(new Color(212, 212, 212));
+        exitButton.setBackground(new Color(33, 33, 33));
+        exitButton.setForeground(new Color(170,170,170));
         exitButton.setFont(customFont);
         exitButton.addActionListener(
                 new ActionListener() {

@@ -4,6 +4,7 @@ import backend.entities.User;
 import controllers.controls.FrontEndControl;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,62 +28,76 @@ public class CreditLimitPanel {
 
     public static Component CreditLimit() {
 
-        Font customFontOne = new Font(Font.SERIF, Font.BOLD, 20);
-        Font customFontTwo = new Font(Font.SERIF, Font.BOLD, 16);
-        Font customFontButton = new Font(Font.SERIF, Font.BOLD, 18);
+        Font customFontOne = new Font(Font.DIALOG, Font.BOLD, 20);
+        Font customFontTwo = new Font(Font.DIALOG, Font.BOLD, 16);
+        Font customFontButton = new Font(Font.DIALOG, Font.BOLD, 18);
 
         JPanel creditLimitPanel = new JPanel();
         creditLimitPanel.setLayout(null);
-        creditLimitPanel.setBackground(new Color(238, 247, 255));
+        creditLimitPanel.setBackground(new Color(24, 24, 24));
 
         creditCard = new JLabel("Credit Card");
         creditCard.setBounds(150, 0, 800, 50);
+        creditCard.setForeground(new Color(170,170,170));
         creditCard.setFont(customFontOne);
         creditLimitPanel.add(creditCard);
 
         limitWithdraw = new JLabel("Лимит на теглене");
         limitWithdraw.setBounds(20, 40, 160, 30);
+        limitWithdraw.setForeground(new Color(170,170,170));
         limitWithdraw.setFont(customFontTwo);
         creditLimitPanel.add(limitWithdraw);
 
         limitPay = new JLabel("Лимит на плащане");
         limitPay.setBounds(20, 70, 160, 30);
+        limitPay.setForeground(new Color(170,170,170));
         limitPay.setFont(customFontTwo);
         creditLimitPanel.add(limitPay);
 
         limitWithdrawValue = new JLabel(String.valueOf(user.getCredit().getWithdrawalLimit()));
         limitWithdrawValue.setBounds(190, 40, 100, 30);
+        limitWithdrawValue.setForeground(new Color(170,170,170));
         limitWithdrawValue.setFont(customFontTwo);
         creditLimitPanel.add(limitWithdrawValue);
 
         limitPayValue = new JLabel(String.valueOf(user.getCredit().getPaymentLimit()));
         limitPayValue.setBounds(190, 70, 100, 30);
+        limitPayValue.setForeground(new Color(170,170,170));
         limitPayValue.setFont(customFontTwo);
         creditLimitPanel.add(limitPayValue);
 
         newWithdrawLimit = new JTextField();
         newWithdrawLimit.setBounds(240, 45, 85, 20);
+        newWithdrawLimit.setBackground(new Color(61,61,61));
+        newWithdrawLimit.setForeground(new Color(255,255,255));
+        newWithdrawLimit.setBorder(new LineBorder(new Color(33,33,33)));
         newWithdrawLimit.setFont(customFontTwo);
         creditLimitPanel.add(newWithdrawLimit);
 
         newPayLimit = new JTextField();
         newPayLimit.setBounds(240, 75, 85, 20);
+        newPayLimit.setBackground(new Color(61,61,61));
+        newPayLimit.setForeground(new Color(255,255,255));
+        newPayLimit.setBorder(new LineBorder(new Color(33,33,33)));
         newPayLimit.setFont(customFontTwo);
         creditLimitPanel.add(newPayLimit);
 
         limitWithdrawCurrency = new JLabel("BGN");
         limitWithdrawCurrency.setBounds(330, 42, 100, 25);
+        limitWithdrawCurrency.setForeground(new Color(170,170,170));
         limitWithdrawCurrency.setFont(customFontTwo);
         creditLimitPanel.add(limitWithdrawCurrency);
 
         limitPayCurrency = new JLabel("BGN");
         limitPayCurrency.setBounds(330, 72, 100, 25);
+        limitPayCurrency.setForeground(new Color(170,170,170));
         limitPayCurrency.setFont(customFontTwo);
         creditLimitPanel.add(limitPayCurrency);
 
         updateLimit = new JButton("Обнови лимита");
         updateLimit.setBounds(110, 110, 190, 25);
-        updateLimit.setBackground(new Color(212, 212, 212));
+        updateLimit.setBackground(new Color(33, 33, 33));
+        updateLimit.setForeground(new Color(170,170,170));
         updateLimit.setFont(customFontButton);
         creditLimitPanel.add(updateLimit);
         updateLimit.addActionListener(

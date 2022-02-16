@@ -21,8 +21,8 @@ public class LoginPanel{
     private static JButton registerButton;
 
     public static void loginFrame(){
-        Font customFont = new Font(Font.SERIF, Font.BOLD, 18);
-        Font textCustomFont = new Font("Arial", Font.BOLD, 16);
+        Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
+        Font textCustomFont = new Font(Font.DIALOG, Font.BOLD, 16);
 
         JFrame loginFrame = new JFrame("SmartBanking — Вход");
         JPanel loginPanel = new JPanel();
@@ -33,7 +33,7 @@ public class LoginPanel{
         loginPanel.setLayout(null);
         loginPanel.setBackground(new Color(24, 24, 24));
 
-        usernameLabel = new JLabel("Потребителско име");
+        usernameLabel = new JLabel("Потр. име");
         usernameLabel.setBounds(20, 25, 165, 50);
         usernameLabel.setFont(customFont);
         usernameLabel.setForeground(new Color(170,170,170));
@@ -62,7 +62,7 @@ public class LoginPanel{
         loginPanel.add(passwordField);
 
         loginButton = new JButton("Вход");
-        loginButton.setBounds(260, 140, 100, 30);
+        loginButton.setBounds(250, 140, 100, 30);
         loginButton.setBackground(new Color(33, 33, 33));
         loginButton.setForeground(new Color(170,170,170));
         loginButton.setFont(customFont);
@@ -89,8 +89,8 @@ public class LoginPanel{
         );
         loginPanel.add(loginButton);
 
-        registerButton = new JButton("Нова Регистрация");
-        registerButton.setBounds(40, 140, 190, 30);
+        registerButton = new JButton("Регистрация");
+        registerButton.setBounds(30, 140, 160, 30);
         registerButton.setBackground(new Color(33, 33, 33));
         registerButton.setForeground(new Color(170,170,170));
         registerButton.setFont(customFont);

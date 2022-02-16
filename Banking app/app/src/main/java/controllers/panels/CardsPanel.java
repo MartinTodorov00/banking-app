@@ -9,7 +9,7 @@ public class CardsPanel {
 
         JPanel allCardsPanel = new JPanel();
         allCardsPanel.setLayout(new GridLayout(3,1));
-        allCardsPanel.setBackground(new Color(238, 247, 255));
+        allCardsPanel.setBackground(new Color(24, 24, 24));
 
         allCardsPanel.add(MasterCardLimitPanel.MasterCardLimit());
         allCardsPanel.add(VisaLimitPanel.VisaLimit());

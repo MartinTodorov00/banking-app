@@ -23,15 +23,52 @@ public class OptionsPanel {
 
         JPanel optionPanel = new JPanel();
         optionPanel.setLayout(null);
-        optionPanel.setBackground(new Color(238, 247, 255));
+        optionPanel.setBackground(new Color(24, 24, 24));
 
-        JButton deleteButton;
-        JButton updatePasswordButton;
         JButton updateUsernameButton;
+        JButton updatePasswordButton;
+        JButton deleteButton;
+
+        updateUsernameButton = new JButton("Промяна на потр. име");
+        updateUsernameButton.setBounds(80, 100, 220, 35);
+        updateUsernameButton.setBackground(new Color(33, 33, 33));
+        updateUsernameButton.setForeground(new Color(170,170,170));
+        updateUsernameButton.setFont(customFont);
+        optionPanel.add(updateUsernameButton);
+
+        updateUsernameButton.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        mainFrame.setVisible(false);
+                        ChangeUsernamePanel.changeUsername();
+                    }
+                }
+        );
+
+
+        updatePasswordButton = new JButton("Промяна на парола");
+        updatePasswordButton.setBounds(80, 160, 220, 35);
+        updatePasswordButton.setBackground(new Color(33, 33, 33));
+        updatePasswordButton.setForeground(new Color(170,170,170));
+        updatePasswordButton.setFont(customFont);
+        optionPanel.add(updatePasswordButton);
+
+        updatePasswordButton.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        mainFrame.setVisible(false);
+                        ChangePasswordPanel.changePassword();
+                    }
+                }
+        );
+
 
         deleteButton = new JButton("Изтриване на акаунта");
-        deleteButton.setBounds(80, 150, 220, 35);
-        deleteButton.setBackground(new Color(255, 255, 255));
+        deleteButton.setBounds(80, 220, 220, 35);
+        deleteButton.setBackground(new Color(33, 33, 33));
+        deleteButton.setForeground(new Color(170,170,170));
         deleteButton.setFont(customFont);
         optionPanel.add(deleteButton);
 
@@ -48,41 +85,6 @@ public class OptionsPanel {
                         }
                     }
                 });
-
-
-        updatePasswordButton = new JButton("Промяна на парола");
-        updatePasswordButton.setBounds(80, 100, 220, 35);
-        updatePasswordButton.setBackground(new Color(255, 255, 255));
-        updatePasswordButton.setFont(customFont);
-        optionPanel.add(updatePasswordButton);
-
-
-        updatePasswordButton.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        mainFrame.setVisible(false);
-                        ChangePasswordPanel.changePassword();
-                    }
-                }
-        );
-
-        updateUsernameButton = new JButton("Промяна на потр. име");
-        updateUsernameButton.setBounds(80, 50, 220, 35);
-        updateUsernameButton.setBackground(new Color(255, 255, 255));
-        updateUsernameButton.setFont(customFont);
-        optionPanel.add(updateUsernameButton);
-
-
-        updateUsernameButton.addActionListener(
-                new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        mainFrame.setVisible(false);
-                        ChangeUsernamePanel.changeUsername();
-                    }
-                }
-        );
 
         optionPanel.setVisible(true);
 

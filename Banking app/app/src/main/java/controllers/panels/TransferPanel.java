@@ -5,6 +5,7 @@ import backend.entities.User;
 import controllers.controls.FrontEndControl;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,51 +31,65 @@ public class TransferPanel {
 
     public static Component Transfer() {
 
-        Font customFont = new Font(Font.SERIF, Font.BOLD, 18);
+        Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
 
         JPanel transferPanel = new JPanel();
         transferPanel.setLayout(null);
-        transferPanel.setBackground(new Color(238, 247, 255));
+        transferPanel.setBackground(new Color(24, 24, 24));
 
         titleLabel = new JLabel("Паричен превод");
         titleLabel.setBounds(130, 10, 800, 50);
+        titleLabel.setForeground(new Color(170,170,170));
         titleLabel.setFont(customFont);
         transferPanel.add(titleLabel);
 
         ibanLabel = new JLabel("IBAN на получател:");
         ibanLabel.setBounds(115, 80, 190, 30);
+        ibanLabel.setForeground(new Color(170,170,170));
         ibanLabel.setFont(customFont);
         transferPanel.add(ibanLabel);
 
         fromCardLabel = new JLabel("От сметка");
         fromCardLabel.setBounds(150, 150, 190, 30);
+        fromCardLabel.setForeground(new Color(170,170,170));
         fromCardLabel.setFont(customFont);
         transferPanel.add(fromCardLabel);
 
         transferSum = new JLabel("Сума за изпращане:");
         transferSum.setBounds(110, 230, 190, 30);
+        transferSum.setForeground(new Color(170,170,170));
         transferSum.setFont(customFont);
         transferPanel.add(transferSum);
 
         ibanField = new JTextField();
         ibanField.setBounds(110, 110, 175, 30);
+        ibanField.setBackground(new Color(61,61,61));
+        ibanField.setForeground(new Color(255,255,255));
+        ibanField.setBorder(new LineBorder(new Color(33,33,33)));
         ibanField.setFont(customFont);
         transferPanel.add(ibanField);
 
         String cards[] = {" ", "MasterCard", "VisaClassic", "CreditCard"};
         cardsBox = new JComboBox(cards);
+        cardsBox.setBackground(new Color(61,61,61));
+        cardsBox.setForeground(new Color(170,170,170));
+        cardsBox.setBorder(new LineBorder(new Color(33,33,33)));
         cardsBox.setBounds(110, 180, 175, 30);
         cardsBox.setFont(customFont);
         transferPanel.add(cardsBox);
 
         transferSumField = new JTextField();
         transferSumField.setBounds(110, 260, 175, 30);
+        transferSumField.setBackground(new Color(61,61,61));
+        transferSumField.setForeground(new Color(255,255,255));
+        transferSumField.setBorder(new LineBorder(new Color(33,33,33)));
         transferSumField.setFont(customFont);
         transferPanel.add(transferSumField);
 
         commenceTransferButton = new JButton("Преведи");
         commenceTransferButton.setBounds(100, 350, 200, 40);
-        commenceTransferButton.setBackground(new Color(212, 212, 212));
+        commenceTransferButton.setBackground(new Color(33, 33, 33));
+        commenceTransferButton.setForeground(new Color(170,170,170));
         commenceTransferButton.setFont(customFont);
         transferPanel.add(commenceTransferButton);
         commenceTransferButton.addActionListener(
