@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import static backend.repositories.Login.user;
+import static controllers.panels.CoordinationPanel.logo;
 
 public class MainBillsPanel {
 
@@ -37,6 +38,7 @@ public class MainBillsPanel {
         mainProgramFrame.add(mainProgramPanel);
         mainProgramPanel.setLayout(null);
         mainProgramPanel.setBackground(new Color(238, 247, 255));
+        mainProgramFrame.setIconImage(logo.getImage());
 
 
         totalFundsLabel = new JLabel("Обща разполагаемост");

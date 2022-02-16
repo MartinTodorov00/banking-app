@@ -11,6 +11,7 @@ import java.sql.SQLException;
 
 import static backend.repositories.Login.user;
 import static controllers.panels.CoordinationPanel.mainFrame;
+import static controllers.panels.CoordinationPanel.logo;
 
 public class ChangeUsernamePanel {
 
@@ -20,6 +21,7 @@ public class ChangeUsernamePanel {
         Font customFont = new Font(Font.SERIF, Font.BOLD, 18);
         Border blackLine = BorderFactory.createLineBorder(Color.BLACK);
         JFrame frame = new JFrame("Промяна на потребителско име");
+        frame.setIconImage(logo.getImage());
         frame.setBounds(650, 200, 600, 400);
         JPanel usernameUpdate = new JPanel();
         usernameUpdate.setLayout(null);

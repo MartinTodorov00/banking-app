@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import static backend.repositories.Login.user;
+import static controllers.panels.CoordinationPanel.logo;
 import static controllers.panels.CoordinationPanel.mainFrame;
 
 public class ChangePasswordPanel {
@@ -25,6 +26,7 @@ public class ChangePasswordPanel {
         Font customFont = new Font(Font.SERIF, Font.BOLD, 18);
         Border blackLine = BorderFactory.createLineBorder(Color.BLACK);
         JFrame frame = new JFrame("Промяна на парола");
+        frame.setIconImage(logo.getImage());
         frame.setBounds(650, 200, 600, 400);
         passwordUpdate = new JPanel();
         passwordUpdate.setLayout(null);

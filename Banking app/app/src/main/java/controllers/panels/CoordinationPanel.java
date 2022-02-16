@@ -12,6 +12,7 @@ import static backend.repositories.Login.user;
 
 public class CoordinationPanel{
 
+    public static ImageIcon logo = new ImageIcon("src/main/resources/logo.png");
     public static JFrame mainFrame = new JFrame("SmartBanking — " + user.getFirstName()+ " " + user.getLastName());
 
     public static Component CoordinationPanel(){
@@ -26,6 +27,7 @@ public class CoordinationPanel{
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setBounds(650,200,400, 500);
+        mainFrame.setIconImage(logo.getImage());
 
         //Coordination Panel
         JPanel coordinationPanel = new JPanel();
