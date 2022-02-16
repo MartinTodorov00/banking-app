@@ -75,28 +75,18 @@ public class Register {
 
         preparedStatementForMoney.execute();
 
-        //password
-        String queryForPassword = "INSERT INTO password(password)\n" +
-                "VALUES (?)";
-
-        PreparedStatement preparedStatementForPassword = connection.prepareStatement(queryForPassword);
-
-        preparedStatementForPassword.setString(1, password);
-
-        preparedStatementForPassword.execute();
-
         //user
 
         String s = "BGN";
         int random = Util.randomNumber(100000, 999999);
         String iban = s + random;
-        String query = "INSERT INTO users (username, id_password, `email`, city, `first name`, `last name`, `id_cards`, `iban`)\n" +
+        String query = "INSERT INTO users (username, `password`, `email`, city, `first name`, `last name`, `id_cards`, `iban`)\n" +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         PreparedStatement preparedStatement = connection.prepareStatement(query);
 
         preparedStatement.setString(1, username);
-        preparedStatement.setInt(2, countForCards);
+        preparedStatement.setString(2, password);
         preparedStatement.setString(3, email);
         preparedStatement.setString(4, city);
         preparedStatement.setString(5, firstName);

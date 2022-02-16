@@ -12,9 +12,9 @@ public class ChangePassword {
         Connection connection = ConnectionJbdc.getConnection();
 
         String queryForChangePassword = """
-                UPDATE `password` AS p
-                SET p.password = ?
-                WHERE p.id = ?""";
+                UPDATE users AS u
+                SET u.password = ?
+                WHERE u.id = ?""";
 
         PreparedStatement preparedStatementForChangePassword = connection.prepareStatement(queryForChangePassword);
 

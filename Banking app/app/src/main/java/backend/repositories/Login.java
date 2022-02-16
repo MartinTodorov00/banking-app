@@ -34,8 +34,7 @@ public class Login {
         Connection connection = ConnectionJbdc.getConnection();
 
         //check
-        String queryForNameAndPass = "SELECT u.username, `password` FROM users AS u\n" +
-                "JOIN password p on p.id = u.id_password\n";
+        String queryForNameAndPass = "SELECT u.username, u.password FROM users AS u";
 
         PreparedStatement statementGetName = connection.prepareStatement(queryForNameAndPass);
 
