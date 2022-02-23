@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 import static backend.repositories.Login.user;
+import static javax.swing.BorderFactory.createLineBorder;
 
 public class CoordinationPanel{
 
@@ -30,12 +31,14 @@ public class CoordinationPanel{
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setBounds(650,200,400, 500);
         mainFrame.setIconImage(logo.getImage());
+        mainFrame.getContentPane().setBackground(new Color(24,24,24));
         mainFrame.setTitle("SmartBanking — " + user.getFirstName()+ " " + user.getLastName());
 
         //Coordination Panel
         JPanel coordinationPanel = new JPanel();
         coordinationPanel.setLayout(null);
         coordinationPanel.setBackground(new Color(24, 24, 24));
+        coordinationPanel.setBorder(new LineBorder(new Color(24,24,24)));
 
         //TabbedPane
         JTabbedPane tabbedPane = new JTabbedPane();
