@@ -30,6 +30,7 @@ public class CoordinationPanel{
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setBounds(650,200,400, 500);
         mainFrame.setIconImage(logo.getImage());
+        mainFrame.setTitle("SmartBanking — " + user.getFirstName()+ " " + user.getLastName());
 
         //Coordination Panel
         JPanel coordinationPanel = new JPanel();
