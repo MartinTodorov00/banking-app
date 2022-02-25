@@ -14,18 +14,18 @@ import static backend.repositories.Login.user;
 
 public class CreditLimitPanel {
 
-    private static JLabel creditCard;
-    private static JLabel limitWithdraw;
-    private static JLabel limitPay;
-    private static JLabel limitWithdrawValue;
-    private static JLabel limitPayValue;
-    private static JTextField newWithdrawLimit;
-    private static JTextField newPayLimit;
-    private static JLabel limitWithdrawCurrency;
-    private static JLabel limitPayCurrency;
-    private static JButton updateLimit;
-
     public static Component CreditLimit() {
+
+        JLabel creditCard;
+        JLabel limitWithdraw;
+        JLabel limitPay;
+        JLabel limitWithdrawValue;
+        JLabel limitPayValue;
+        JTextField newWithdrawLimit;
+        JTextField newPayLimit;
+        JLabel limitWithdrawCurrency;
+        JLabel limitPayCurrency;
+        JButton updateLimit;
 
         Font customFontOne = new Font(Font.DIALOG, Font.BOLD, 20);
         Font customFontTwo = new Font(Font.DIALOG, Font.BOLD, 16);

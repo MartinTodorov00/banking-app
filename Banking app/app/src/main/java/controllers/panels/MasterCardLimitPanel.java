@@ -14,17 +14,6 @@ import static backend.repositories.Login.user;
 
 public class MasterCardLimitPanel {
 
-    private static JLabel masterCard;
-    private static JLabel limitWithdraw;
-    private static JLabel limitPay;
-    private static JLabel limitWithdrawValue;
-    private static JLabel limitPayValue;
-    private static JTextField newWithdrawLimit;
-    private static JTextField newPayLimit;
-    private static JLabel limitWithdrawCurrency;
-    private static JLabel limitPayCurrency;
-    private static JButton updateLimit;
-
     public static Component MasterCardLimit() {
 
         Font customFontOne = new Font(Font.DIALOG, Font.BOLD, 20);
@@ -35,36 +24,42 @@ public class MasterCardLimitPanel {
         mastercardLimitPanel.setLayout(null);
         mastercardLimitPanel.setBackground(new Color(24, 24, 24));
 
+        JLabel masterCard;
         masterCard = new JLabel("MasterCard");
         masterCard.setBounds(150, 0, 800, 50);
         masterCard.setForeground(new Color(170,170,170));
         masterCard.setFont(customFontOne);
         mastercardLimitPanel.add(masterCard);
 
+        JLabel limitWithdraw;
         limitWithdraw = new JLabel("Лимит на теглене");
         limitWithdraw.setBounds(20, 40, 160, 30);
         limitWithdraw.setForeground(new Color(170,170,170));
         limitWithdraw.setFont(customFontTwo);
         mastercardLimitPanel.add(limitWithdraw);
 
+        JLabel limitPay;
         limitPay = new JLabel("Лимит на плащане");
         limitPay.setBounds(20, 70, 160, 30);
         limitPay.setForeground(new Color(170,170,170));
         limitPay.setFont(customFontTwo);
         mastercardLimitPanel.add(limitPay);
 
+        JLabel limitWithdrawValue;
         limitWithdrawValue = new JLabel(String.valueOf(user.getMasterCard().getWithdrawalLimit()));
         limitWithdrawValue.setBounds(190, 40, 100, 30);
         limitWithdrawValue.setForeground(new Color(170,170,170));
         limitWithdrawValue.setFont(customFontTwo);
         mastercardLimitPanel.add(limitWithdrawValue);
 
+        JLabel limitPayValue;
         limitPayValue = new JLabel(String.valueOf(user.getMasterCard().getPaymentLimit()));
         limitPayValue.setBounds(190, 70, 100, 30);
         limitPayValue.setForeground(new Color(170,170,170));
         limitPayValue.setFont(customFontTwo);
         mastercardLimitPanel.add(limitPayValue);
 
+        JTextField newWithdrawLimit;
         newWithdrawLimit = new JTextField();
         newWithdrawLimit.setBounds(240, 45, 85, 20);
         newWithdrawLimit.setBackground(new Color(61,61,61));
@@ -73,6 +68,7 @@ public class MasterCardLimitPanel {
         newWithdrawLimit.setFont(customFontTwo);
         mastercardLimitPanel.add(newWithdrawLimit);
 
+        JTextField newPayLimit;
         newPayLimit = new JTextField();
         newPayLimit.setBounds(240, 75, 85, 20);
         newPayLimit.setBackground(new Color(61,61,61));
@@ -81,18 +77,21 @@ public class MasterCardLimitPanel {
         newPayLimit.setFont(customFontTwo);
         mastercardLimitPanel.add(newPayLimit);
 
+        JLabel limitWithdrawCurrency;
         limitWithdrawCurrency = new JLabel("BGN");
         limitWithdrawCurrency.setBounds(330, 42, 100, 25);
         limitWithdrawCurrency.setForeground(new Color(170,170,170));
         limitWithdrawCurrency.setFont(customFontTwo);
         mastercardLimitPanel.add(limitWithdrawCurrency);
 
+        JLabel limitPayCurrency;
         limitPayCurrency = new JLabel("BGN");
         limitPayCurrency.setBounds(330, 72, 100, 25);
         limitPayCurrency.setForeground(new Color(170,170,170));
         limitPayCurrency.setFont(customFontTwo);
         mastercardLimitPanel.add(limitPayCurrency);
 
+        JButton updateLimit;
         updateLimit = new JButton("Обнови лимита");
         updateLimit.setBounds(110, 110, 190, 25);
         updateLimit.setBackground(new Color(33, 33, 33));

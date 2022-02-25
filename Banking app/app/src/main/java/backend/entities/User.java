@@ -141,5 +141,6 @@ public class User {
         setMasterCard(null);
         setVisa(null);
         setCreditCard(null);
+        setCredit(null);
     }
 }

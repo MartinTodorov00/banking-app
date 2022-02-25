@@ -16,20 +16,16 @@ import static backend.repositories.Login.user;
 
 public class TransferPanel {
 
-    private static JLabel titleLabel;
-
-    private static JLabel ibanLabel;
-    private static JLabel fromCardLabel;
-    private static JLabel transferSum;
-
-    private static JTextField ibanField;
-    private static JTextField transferSumField;
-
-    private static JButton commenceTransferButton;
-
-    private static JComboBox cardsBox;
-
     public static Component Transfer() {
+
+        JLabel titleLabel;
+        JLabel ibanLabel;
+        JLabel fromCardLabel;
+        JLabel transferSum;
+        JTextField ibanField;
+        JTextField transferSumField;
+        JButton commenceTransferButton;
+        JComboBox cardsBox;
 
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
 

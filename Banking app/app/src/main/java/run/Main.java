@@ -9,11 +9,7 @@ public class Main {
         FrontEndControl.run();
 
         //Tasks:
-        //search by two criteria - two times // BackEnd and Swing
-
-        //Problem s akauntite(pri natiskane na izhod i logvane na drug user, se pokazvat dannite na purviq lognat user) // Swing
-        //Prevod po smetka // moje bi zaradi gorniq problem
-
         //opravqne na scaling // Swing
+        //Problem s akauntite(pri natiskane na izhod i logvane na drug user, se pokazvat dannite na purviq lognat user) // Swing
     }
 }
