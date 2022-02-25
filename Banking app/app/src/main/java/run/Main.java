@@ -10,6 +10,6 @@ public class Main {
 
         //Tasks:
         //opravqne na scaling // Swing
-        //Problem s akauntite(pri natiskane na izhod i logvane na drug user, se pokazvat dannite na purviq lognat user) // Swing
+        //Problem s karti(pri natiskane na izhod i logvane na drug user, se pokazvat limitite na purviq lognat user) // Swing
     }
 }
