@@ -3,6 +3,7 @@ package backend.repositories;
 import backend.services.ConnectionJbdc;
 import backend.services.Util;
 
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -38,19 +39,6 @@ public class Register {
 
         preparedStatementForVisaClassic.execute();
 
-        //credit_cards
-        String queryForCreditCard = "INSERT INTO credit_cards(balance, payment_limit, withdrawal_limit)\n" +
-                "VALUES (?,?,?)";
-
-        PreparedStatement preparedStatementForCreditCard = connection.prepareStatement(queryForCreditCard);
-
-        preparedStatementForCreditCard.setInt(1, 5000);
-        preparedStatementForCreditCard.setInt(2, 200);
-        preparedStatementForCreditCard.setInt(3, 300);
-
-        preparedStatementForCreditCard.execute();
-
-
         //id
         int countForCards = 0;
         String queryForId = "SELECT MAX(id)\n" +
@@ -62,6 +50,49 @@ public class Register {
         while (resultSetId.next()) {
             countForCards = resultSetId.getInt("MAX(id)");
         }
+
+        //credit
+        int randomNumber = Util.randomNumber(1, 10);
+        boolean haveCredit = false;
+        int creditNumbers = 0;
+        if (randomNumber > 5) {
+            haveCredit = true;
+            creditNumbers++;
+        }
+
+        String queryForCredit = "INSERT INTO credit(available_credit, credit_numbers, credit_amount, credit_term, contribution_amount)\n" +
+                "VALUES (?,?,?,?,?)";
+
+        PreparedStatement preparedStatementForCredit = connection.prepareStatement(queryForCredit);
+
+        if (haveCredit) {
+            preparedStatementForCredit.setBoolean(1, haveCredit);
+            preparedStatementForCredit.setInt(2, creditNumbers);
+            preparedStatementForCredit.setBigDecimal(3, new BigDecimal(5000));
+            preparedStatementForCredit.setInt(4, 6);
+            preparedStatementForCredit.setBigDecimal(5, new BigDecimal(1000));
+        }else {
+            preparedStatementForCredit.setBoolean(1, haveCredit);
+            preparedStatementForCredit.setInt(2, creditNumbers);
+            preparedStatementForCredit.setBigDecimal(3, new BigDecimal(0));
+            preparedStatementForCredit.setInt(4, 0);
+            preparedStatementForCredit.setBigDecimal(5, new BigDecimal(0));
+        }
+
+        preparedStatementForCredit.execute();
+
+        //credit_cards
+        String queryForCreditCard = "INSERT INTO credit_cards(balance, payment_limit, withdrawal_limit, id_credit)\n" +
+                "VALUES (?,?,?,?)";
+
+        PreparedStatement preparedStatementForCreditCard = connection.prepareStatement(queryForCreditCard);
+
+        preparedStatementForCreditCard.setInt(1, 5000);
+        preparedStatementForCreditCard.setInt(2, 200);
+        preparedStatementForCreditCard.setInt(3, 300);
+        preparedStatementForCreditCard.setInt(4, countForCards);
+
+        preparedStatementForCreditCard.execute();
 
         //cards
         String queryForMoney = "INSERT INTO cards(master_card, visa_classic, credit_card)\n" +

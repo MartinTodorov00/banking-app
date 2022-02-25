@@ -1,6 +1,7 @@
 package backend.entities;
 
 import backend.entities.cards.Credit;
+import backend.entities.cards.CreditCard;
 import backend.entities.cards.MasterCard;
 import backend.entities.cards.Visa;
 
@@ -17,12 +18,13 @@ public class User {
     private String lastName;
     private MasterCard masterCard;
     private Visa visa;
+    private CreditCard creditCard;
     private Credit credit;
 
     public void logUser(int id, String username, String password, String email, String city, String firstName, String lastName
             , BigDecimal masterCardBalance, BigDecimal masterCardPaymentLimit, BigDecimal masterCardWithdrawalLimit
             , BigDecimal visaClassicBalance, BigDecimal visaClassicPaymentLimit, BigDecimal visaClassicWithdrawalLimit
-            , BigDecimal creditCardBalance, BigDecimal creditCardPaymentLimit, BigDecimal creditCardWithdrawalLimit) {
+            , BigDecimal creditCardBalance, BigDecimal creditCardPaymentLimit, BigDecimal creditCardWithdrawalLimit, Credit credit) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -36,9 +38,10 @@ public class User {
         this.visa = new Visa(new BigDecimal(String.valueOf(visaClassicBalance))
                 , new BigDecimal(String.valueOf(visaClassicPaymentLimit))
                 , new BigDecimal(String.valueOf(visaClassicWithdrawalLimit)));
-        this.credit = new Credit(new BigDecimal(String.valueOf(creditCardBalance))
+        this.creditCard = new CreditCard(new BigDecimal(String.valueOf(creditCardBalance))
                 , new BigDecimal(String.valueOf(creditCardPaymentLimit))
                 , new BigDecimal(String.valueOf(creditCardWithdrawalLimit)));
+        this.credit = credit;
     }
 
     public int getId() {
@@ -113,6 +116,14 @@ public class User {
         this.visa = visa;
     }
 
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
+
     public Credit getCredit() {
         return credit;
     }
@@ -130,6 +141,6 @@ public class User {
         setLastName(null);
         setMasterCard(null);
         setVisa(null);
-        setCredit(null);
+        setCreditCard(null);
     }
 }

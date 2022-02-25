@@ -1,6 +1,7 @@
 package backend.repositories;
 
 import backend.entities.User;
+import backend.entities.cards.Credit;
 import backend.services.ConnectionJbdc;
 
 import java.math.BigDecimal;
@@ -135,13 +136,32 @@ public class Login {
                 creditCardBalance = resultForCreditCard.getBigDecimal("balance");
                 creditCardPaymentLimit = resultForCreditCard.getBigDecimal("payment_limit");
                 creditCardWithdrawalLimit = resultForCreditCard.getBigDecimal("withdrawal_limit");
+            }
 
+            //credit card
+            String queryForCredit = "SELECT credit.*, users.id\n" +
+                    "FROM credit\n" +
+                    "INNER JOIN users ON credit.id = users.id\n" +
+                    "WHERE credit.id = ?";
+
+            PreparedStatement statementForCredit = connection.prepareStatement(queryForCredit);
+
+            statementForCredit.setInt(1, userId);
+
+            ResultSet resultForCredit = statementForCredit.executeQuery();
+            Credit credit = new Credit();
+            while (resultForCredit.next()) {
+                credit.setAvailableCredit(resultForCredit.getBoolean("available_credit"));
+                credit.setCreditNumbers(resultForCredit.getInt("credit_numbers"));
+                credit.setCreditAmount(resultForCredit.getBigDecimal("credit_amount"));
+                credit.setCreditTerm(resultForCredit.getInt("credit_term"));
+                credit.setContributionAmount(resultForCredit.getBigDecimal("contribution_amount"));
             }
 
             user.logUser(userId, username, password, userMail, userCity, userFirstName, userLastName
                     , masterCardBalance, masterCardPaymentLimit, masterCardWithdrawalLimit
                     , visaClassicBalance, visaClassicPaymentLimit, visaClassicWithdrawalLimit
-                    , creditCardBalance, creditCardPaymentLimit, creditCardWithdrawalLimit);
+                    , creditCardBalance, creditCardPaymentLimit, creditCardWithdrawalLimit,credit);
 
             setSuccessfulLogin(true);
         }

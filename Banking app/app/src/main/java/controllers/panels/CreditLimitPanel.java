@@ -1,6 +1,5 @@
 package controllers.panels;
 
-import backend.entities.User;
 import controllers.controls.FrontEndControl;
 
 import javax.swing.*;
@@ -54,13 +53,13 @@ public class CreditLimitPanel {
         limitPay.setFont(customFontTwo);
         creditLimitPanel.add(limitPay);
 
-        limitWithdrawValue = new JLabel(String.valueOf(user.getCredit().getWithdrawalLimit()));
+        limitWithdrawValue = new JLabel(String.valueOf(user.getCreditCard().getWithdrawalLimit()));
         limitWithdrawValue.setBounds(190, 40, 100, 30);
         limitWithdrawValue.setForeground(new Color(170,170,170));
         limitWithdrawValue.setFont(customFontTwo);
         creditLimitPanel.add(limitWithdrawValue);
 
-        limitPayValue = new JLabel(String.valueOf(user.getCredit().getPaymentLimit()));
+        limitPayValue = new JLabel(String.valueOf(user.getCreditCard().getPaymentLimit()));
         limitPayValue.setBounds(190, 70, 100, 30);
         limitPayValue.setForeground(new Color(170,170,170));
         limitPayValue.setFont(customFontTwo);

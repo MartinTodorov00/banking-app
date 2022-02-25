@@ -50,7 +50,7 @@ public class CreditBillsPanel {
         mainProgramPanel.add(totalFundsLabel);
 
 
-        allBalanceLabel = new JLabel(String.valueOf(user.getCredit().getBalance()), SwingConstants.CENTER);
+        allBalanceLabel = new JLabel(String.valueOf(user.getCreditCard().getBalance()), SwingConstants.CENTER);
         allBalanceLabel.setBounds(290, 40, 180, 30);
         allBalanceLabel.setBackground(new Color(61,61,61));
         allBalanceLabel.setForeground(new Color(255,255,255));

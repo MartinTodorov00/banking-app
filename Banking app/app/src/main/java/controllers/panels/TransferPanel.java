@@ -113,7 +113,7 @@ public class TransferPanel {
                                     }else if (card.equals("VisaClassic")) {
                                         user.getVisa().setBalance(user.getVisa().getBalance().subtract(sumNumberBigDecimal));
                                     }else if (card.equals("CreditCard")) {
-                                        user.getCredit().setBalance(user.getCredit().getBalance().subtract(sumNumberBigDecimal));
+                                        user.getCreditCard().setBalance(user.getCreditCard().getBalance().subtract(sumNumberBigDecimal));
                                     }
 
                                     commenceTransferButton.setBackground(new Color(124, 252, 0));
