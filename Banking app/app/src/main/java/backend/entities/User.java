@@ -1,6 +1,5 @@
 package backend.entities;
 
-import backend.entities.cards.Credit;
 import backend.entities.cards.CreditCard;
 import backend.entities.cards.MasterCard;
 import backend.entities.cards.Visa;

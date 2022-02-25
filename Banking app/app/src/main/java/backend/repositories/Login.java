@@ -1,7 +1,7 @@
 package backend.repositories;
 
+import backend.entities.Credit;
 import backend.entities.User;
-import backend.entities.cards.Credit;
 import backend.services.ConnectionJbdc;
 
 import java.math.BigDecimal;
@@ -138,7 +138,7 @@ public class Login {
                 creditCardWithdrawalLimit = resultForCreditCard.getBigDecimal("withdrawal_limit");
             }
 
-            //credit card
+            //credit
             String queryForCredit = "SELECT credit.*, users.id\n" +
                     "FROM credit\n" +
                     "INNER JOIN users ON credit.id = users.id\n" +
