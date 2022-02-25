@@ -59,6 +59,9 @@ public class CoordinationPanel{
         tabbedPane.addTab("Настройки", OptionsPanel.Options());
         tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
 
+        tabbedPane.addTab("Справки", ConsultationPanel.Consultations());
+        tabbedPane.setMnemonicAt(4,KeyEvent.VK_5);
+
         mainFrame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 
         billButton = new JButton("Сметки");
