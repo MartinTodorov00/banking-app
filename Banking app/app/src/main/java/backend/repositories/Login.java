@@ -122,11 +122,12 @@ public class Login {
             String queryForCreditCard = "SELECT credit_cards.*, users.id\n" +
                     "FROM credit_cards\n" +
                     "INNER JOIN users ON credit_cards.id = users.id\n" +
-                    "WHERE credit_cards.id = ?";
+                    "WHERE credit_cards.id = ? AND users.id = ?";
 
             PreparedStatement statementForCreditCard = connection.prepareStatement(queryForCreditCard);
 
             statementForCreditCard.setInt(1, userId);
+            statementForCreditCard.setInt(2, userId);
 
             ResultSet resultForCreditCard = statementForCreditCard.executeQuery();
             BigDecimal creditCardBalance = new BigDecimal("0.00");
@@ -142,11 +143,12 @@ public class Login {
             String queryForCredit = "SELECT credit.*, users.id\n" +
                     "FROM credit\n" +
                     "INNER JOIN users ON credit.id = users.id\n" +
-                    "WHERE credit.id = ?";
+                    "WHERE credit.id = ? AND users.id = ?";
 
             PreparedStatement statementForCredit = connection.prepareStatement(queryForCredit);
 
             statementForCredit.setInt(1, userId);
+            statementForCredit.setInt(2, userId);
 
             ResultSet resultForCredit = statementForCredit.executeQuery();
             Credit credit = new Credit();

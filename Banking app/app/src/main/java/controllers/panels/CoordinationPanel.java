@@ -56,11 +56,13 @@ public class CoordinationPanel{
         tabbedPane.addTab("Карти", CardsPanel.CardsPanel());
         tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
-        tabbedPane.addTab("Настройки", OptionsPanel.Options());
-        tabbedPane.setMnemonicAt(3, KeyEvent.VK_4);
-
         tabbedPane.addTab("Справки", ConsultationPanel.Consultations());
-        tabbedPane.setMnemonicAt(4,KeyEvent.VK_5);
+        tabbedPane.setMnemonicAt(3,KeyEvent.VK_4);
+
+        tabbedPane.addTab("Настройки", OptionsPanel.Options());
+        tabbedPane.setMnemonicAt(4, KeyEvent.VK_5);
+
+
 
         mainFrame.getContentPane().add(tabbedPane, BorderLayout.CENTER);
 

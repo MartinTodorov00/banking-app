@@ -27,7 +27,7 @@ public class CreditBillsPanel {
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
         Border blackLine = BorderFactory.createLineBorder(Color.BLACK);
 
-        JFrame mainProgramFrame = new JFrame("SmartBanking — Кредитно състояние");
+        JFrame mainProgramFrame = new JFrame("SmartBanking — Кредитно състояние - " + user.getFirstName() + " " + user.getLastName());
         JPanel mainProgramPanel = new JPanel();
         mainProgramFrame.setIconImage(logo.getImage());
         mainProgramFrame.setSize(670, 555);
@@ -69,7 +69,11 @@ public class CreditBillsPanel {
         mainProgramPanel.add(allCurrencyLabel);
 
 
-        mCBalanceLabel = new JLabel("Няма наличен изтеглен кредит", SwingConstants.CENTER);
+        if (user.getCredit().getAvailableCredit()) {
+            mCBalanceLabel = new JLabel("Наличен изтеглен кредит", SwingConstants.CENTER);
+        }else {
+            mCBalanceLabel = new JLabel("Няма наличен изтеглен кредит", SwingConstants.CENTER);
+        }
         mCBalanceLabel.setBounds(290, 120, 300, 30);
         mCBalanceLabel.setBackground(new Color(61,61,61));
         mCBalanceLabel.setForeground(new Color(255,255,255));

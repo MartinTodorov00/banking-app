@@ -6,8 +6,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static backend.repositories.Login.user;
 import static controllers.panels.CoordinationPanel.logo;
 import static controllers.panels.CoordinationPanel.mainFrame;
+
 
 public class CheckCreditPanel {
 
@@ -49,7 +51,7 @@ public class CheckCreditPanel {
         paymentSizeLabel.setFont(customFont);
         panel.add(paymentSizeLabel);
 
-        JLabel numberOfCreditsValue = new JLabel("1",SwingConstants.CENTER);
+        JLabel numberOfCreditsValue = new JLabel(String.valueOf(user.getCredit().getCreditNumbers()), SwingConstants.CENTER);
         numberOfCreditsValue.setBounds(290, 40, 180, 30);
         numberOfCreditsValue.setBackground(new Color(61,61,61));
         numberOfCreditsValue.setForeground(new Color(255,255,255));
@@ -58,7 +60,7 @@ public class CheckCreditPanel {
         numberOfCreditsValue.setFont(customFont);
         panel.add(numberOfCreditsValue);
 
-        JLabel sizeOfCreditValue = new JLabel("5000",SwingConstants.CENTER);
+        JLabel sizeOfCreditValue = new JLabel(String.valueOf(user.getCredit().getCreditAmount()), SwingConstants.CENTER);
         sizeOfCreditValue.setBounds(290, 90, 180, 30);
         sizeOfCreditValue.setBackground(new Color(61,61,61));
         sizeOfCreditValue.setForeground(new Color(255,255,255));
@@ -67,7 +69,7 @@ public class CheckCreditPanel {
         sizeOfCreditValue.setFont(customFont);
         panel.add(sizeOfCreditValue);
 
-        JLabel creditTermValue = new JLabel("6",SwingConstants.CENTER);
+        JLabel creditTermValue = new JLabel(String.valueOf(user.getCredit().getCreditTerm()), SwingConstants.CENTER);
         creditTermValue.setBounds(290, 140, 180, 30);
         creditTermValue.setBackground(new Color(61,61,61));
         creditTermValue.setForeground(new Color(255,255,255));
@@ -76,7 +78,7 @@ public class CheckCreditPanel {
         creditTermValue.setFont(customFont);
         panel.add(creditTermValue);
 
-        JLabel paymentSizeValue = new JLabel("1000",SwingConstants.CENTER);
+        JLabel paymentSizeValue = new JLabel(String.valueOf(user.getCredit().getContributionAmount()), SwingConstants.CENTER);
         paymentSizeValue.setBounds(290, 190, 180, 30);
         paymentSizeValue.setBackground(new Color(61,61,61));
         paymentSizeValue.setForeground(new Color(255,255,255));
@@ -85,7 +87,7 @@ public class CheckCreditPanel {
         paymentSizeValue.setFont(customFont);
         panel.add(paymentSizeValue);
 
-        JLabel number = new JLabel("брой",SwingConstants.CENTER);
+        JLabel number = new JLabel("брой", SwingConstants.CENTER);
         number.setBounds(490, 40, 180, 30);
         number.setBackground(new Color(61,61,61));
         number.setForeground(new Color(255,255,255));
@@ -94,7 +96,7 @@ public class CheckCreditPanel {
         number.setFont(customFont);
         panel.add(number);
 
-        JLabel currency1 = new JLabel("BGN",SwingConstants.CENTER);
+        JLabel currency1 = new JLabel("BGN", SwingConstants.CENTER);
         currency1.setBounds(490, 90, 180, 30);
         currency1.setBackground(new Color(61,61,61));
         currency1.setForeground(new Color(255,255,255));
@@ -103,7 +105,7 @@ public class CheckCreditPanel {
         currency1.setFont(customFont);
         panel.add(currency1);
 
-        JLabel months = new JLabel("месеца",SwingConstants.CENTER);
+        JLabel months = new JLabel("месеца", SwingConstants.CENTER);
         months.setBounds(490, 140, 180, 30);
         months.setBackground(new Color(61,61,61));
         months.setForeground(new Color(255,255,255));
@@ -112,7 +114,7 @@ public class CheckCreditPanel {
         months.setFont(customFont);
         panel.add(months);
 
-        JLabel currency2 = new JLabel("BGN",SwingConstants.CENTER);
+        JLabel currency2 = new JLabel("BGN", SwingConstants.CENTER);
         currency2.setBounds(490, 190, 180, 30);
         currency2.setBackground(new Color(61,61,61));
         currency2.setForeground(new Color(255,255,255));
