@@ -9,27 +9,25 @@ import static controllers.panels.CoordinationPanel.logo;
 
 public class ContactsPanel {
 
-    private static JLabel contacts;
-    private static JLabel timeShift;
-    private static JLabel shiftHours;
-    private static JLabel contactNumber;
-    private static JLabel contactNumA1;
-    private static JLabel cNumDataA1;
-    private static JLabel contactNumTelenor;
-    private static JLabel cNumDataTelenor;
-    private static JLabel contactNumViva;
-    private static JLabel cNumDataViva;
-    private static JLabel contactNumRoaming;
-    private static JLabel cNumDataRoaming;
-    private static JLabel contactEmailLabel;
-    private static JLabel contactEmail;
-    private static JLabel centralOfficeLabel;
-    private static JLabel centralOfficeAddress;
-
-    private static JButton logoutButton;
-
-
     public static void Contacts(){
+
+        JLabel contacts;
+        JLabel timeShift;
+        JLabel shiftHours;
+        JLabel contactNumber;
+        JLabel contactNumA1;
+        JLabel cNumDataA1;
+        JLabel contactNumTelenor;
+        JLabel cNumDataTelenor;
+        JLabel contactNumViva;
+        JLabel cNumDataViva;
+        JLabel contactNumRoaming;
+        JLabel cNumDataRoaming;
+        JLabel contactEmailLabel;
+        JLabel contactEmail;
+        JLabel centralOfficeLabel;
+        JLabel centralOfficeAddress;
+        JButton logoutButton;
 
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
         Font mainCustomFont = new Font(Font.DIALOG, Font.BOLD, 20);

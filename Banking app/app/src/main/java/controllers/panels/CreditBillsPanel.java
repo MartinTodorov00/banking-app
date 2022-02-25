@@ -1,7 +1,5 @@
 package controllers.panels;
 
-import backend.entities.User;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -14,15 +12,12 @@ import static controllers.panels.CoordinationPanel.logo;
 
 public class CreditBillsPanel {
 
-    private static JLabel totalFundsLabel;
-
-    private static JLabel allBalanceLabel;
-    private static JLabel mCBalanceLabel;
-    private static JLabel allCurrencyLabel;
-
-    private static JButton logoutButton;
-
     public static void CreditBillsPanel(){
+        JLabel totalFundsLabel;
+        JLabel allBalanceLabel;
+        JLabel mCBalanceLabel;
+        JLabel allCurrencyLabel;
+        JButton logoutButton;
 
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
         Border blackLine = BorderFactory.createLineBorder(Color.BLACK);

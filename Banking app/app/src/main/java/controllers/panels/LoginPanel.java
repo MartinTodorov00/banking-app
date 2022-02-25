@@ -1,6 +1,5 @@
 package controllers.panels;
 
-import backend.entities.User;
 import controllers.controls.FrontEndControl;
 
 import javax.swing.*;
@@ -13,14 +12,14 @@ import static controllers.panels.CoordinationPanel.logo;
 
 public class LoginPanel{
 
-    private static JLabel usernameLabel;
-    private static JLabel passwordLabel;
-    private static JTextField usernameField;
-    private static JTextField passwordField;
-    private static JButton loginButton;
-    private static JButton registerButton;
-
     public static void loginFrame(){
+        JLabel usernameLabel;
+        JLabel passwordLabel;
+        JTextField usernameField;
+        JTextField passwordField;
+        JButton loginButton;
+        JButton registerButton;
+
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
         Font textCustomFont = new Font(Font.DIALOG, Font.BOLD, 16);
 

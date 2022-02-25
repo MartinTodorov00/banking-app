@@ -1,9 +1,6 @@
 package controllers.panels;
 
-
-import backend.entities.User;
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,20 +11,15 @@ import static controllers.panels.CoordinationPanel.logo;
 
 public class MainBillsPanel {
 
-    private static JLabel totalFundsLabel;
-
-    private static JLabel allBalanceLabel;
-    private static JLabel mCBalanceLabel;
-    private static JLabel vBalanceLabel;
-
-
-    private static JLabel allCurrencyLabel;
-    private static JLabel mCCurrencyLabel;
-    private static JLabel vCurrencyLabel;
-
-    private static JButton logoutButton;
-
     public static void MainBillsPanel(){
+        JLabel totalFundsLabel;
+        JLabel allBalanceLabel;
+        JLabel mCBalanceLabel;
+        JLabel vBalanceLabel;
+        JLabel allCurrencyLabel;
+        JLabel mCCurrencyLabel;
+        JLabel vCurrencyLabel;
+        JButton logoutButton;
 
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
 

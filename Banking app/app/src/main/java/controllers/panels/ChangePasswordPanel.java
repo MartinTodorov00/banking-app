@@ -16,13 +16,12 @@ import static controllers.panels.CoordinationPanel.mainFrame;
 
 public class ChangePasswordPanel {
 
-    private static JTextArea passwordField;
-    private static JLabel label;
-    private static JButton submitButton;
-    private static JButton backButton;
-    private static JPanel passwordUpdate;
-
     public static void changePassword() {
+        JTextArea passwordField;
+        JLabel label;
+        JButton submitButton;
+        JButton backButton;
+        JPanel passwordUpdate;
 
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
         Border blackLine = BorderFactory.createLineBorder(Color.BLACK);

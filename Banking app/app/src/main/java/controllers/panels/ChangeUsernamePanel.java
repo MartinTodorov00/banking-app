@@ -18,7 +18,6 @@ public class ChangeUsernamePanel {
 
     public static void changeUsername() {
 
-
         Font customFont = new Font(Font.DIALOG, Font.BOLD, 18);
         Border blackLine = BorderFactory.createLineBorder(Color.BLACK);
         JFrame frame = new JFrame("Промяна на потребителско име");
